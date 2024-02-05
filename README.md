@@ -49,7 +49,7 @@ Refer this blog for more information: https://tonylixu.medium.com/docker-run-vs-
 4. docker pull -> pull the docker image from docker hub
 
 ### 1. Docker Build:
-`docker build -t praveensivakumar\dockerimg1:latest .`
+`docker build -t praveensivakumar/dockerimg1:latest .`
 
 `-t` creating a tag for your image
 
@@ -58,10 +58,12 @@ Refer this blog for more information: https://tonylixu.medium.com/docker-run-vs-
 ### output:
 `Successfully built c875dd706215`
 
-`Successfully tagged praveensivakumardockerimg1:latest`
+`Successfully tagged praveensivakumar/dockerimg1:latest`
+
+`docker images` -> to view the docker images in your server
 
 ### 2. Docker Run:
-`docker run -it praveensivakumardockerimg1:latest`
+`docker run -it praveensivakumar/dockerimg1:latest`
 
 `-it` tells docker that it should open an interactive container instance
 
@@ -70,10 +72,45 @@ Refer this blog for more information: https://tonylixu.medium.com/docker-run-vs-
 
 `Starting development server at http://0.0.0.0:8080/`
 
-### Now the docker container run only in the container itself 
+### Now the docker container run only in the container itself, so we need to interactive with host operating system to run in outside the docker environment
+`docker run -p 8080:8080 -it praveensivakumar/dockerimg1`
 
+## now we can able to see content of application in browser
+![image](https://github.com/praveensivakumar1998/simple-djongo-app-docker/assets/108512714/f7b089b9-f535-4ae6-914f-2a621439e623)
 
+## 3. Docker Push:
+### Login to Dockerhub in your ubuntu server to push the docker image
+`docker login`
 
+![image](https://github.com/praveensivakumar1998/simple-djongo-app-docker/assets/108512714/285ff282-4956-4723-8170-ee5b6c97e472)
+
+update your login credentials to log on to your docker hub
+
+### output:
+![image](https://github.com/praveensivakumar1998/simple-djongo-app-docker/assets/108512714/f64f9bd5-a028-44b2-93b2-89abb1da42ce)
+
+`docker push praveensivakumar/dockerimg1:latest`
+ ### output:
+`The push refers to repository [docker.io/praveensivakumar/dockerimage1]`
+`72a9eef5ee8e: Pushed`
+`ffec7cb2fd19: Pushed`
+`c064d6b49ba0: Pushed`
+`fd55a71a222a: Pushed`
+`1a102d1cac2b: Pushed`
+`latest: digest: sha256:3f3600859303d8a3047daf8af4d65a2f570bb63287457510d63138d444f3ad69 size: 1363`
+
+## Now you can check the image is pushed to your dockerhub
+https://hub.docker.com/ 
+
+Login to you docker hub account via your favourite browser and verify the image appears
+
+![image](https://github.com/praveensivakumar1998/simple-djongo-app-docker/assets/108512714/be891ffc-7f80-401d-8ba2-a7d2d2e6e65d)
+
+### 4. Docker Pull:
+
+`docker push praveensivakumar/dockerimage1:tagname` 
+
+use this above cmd to pull the image from your docker hub to your server 
 
 
 

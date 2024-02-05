@@ -52,10 +52,12 @@ Refer this blog for more information: https://tonylixu.medium.com/docker-run-vs-
 `docker build -t praveensivakumar\dockerimg1:latest .`
 
 `-t` creating a tag for your image
+
 `.` to specify the path for cmds to run
 
 ### output:
 `Successfully built c875dd706215`
+
 `Successfully tagged praveensivakumardockerimg1:latest`
 
 ### 2. Docker Run:
@@ -65,6 +67,7 @@ Refer this blog for more information: https://tonylixu.medium.com/docker-run-vs-
 
 ### output:
 `Django version 5.0.1, using settings 'devops.settings'`
+
 `Starting development server at http://0.0.0.0:8080/`
 
 ### Now the docker container run only in the container itself 
